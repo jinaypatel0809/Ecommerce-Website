@@ -1,0 +1,1930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deals & Offers | ElectroShop - Premium Electronics Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --secondary: #7c3aed;
+            --accent: #f59e0b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --success: #10b981;
+            --danger: #ef4444;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+            --radius: 8px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            background-color: #f1f5f9;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(37, 99, 235, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .btn-danger {
+            background-color: var(--danger);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background-color: #dc2626;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Header & Navbar */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 16px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        .nav-icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-icons a {
+            color: var(--dark);
+            font-size: 20px;
+            margin-left: 20px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-icons a:hover {
+            color: var(--primary);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--secondary);
+            color: white;
+            font-size: 12px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Search Bar */
+        .search-container {
+            background-color: var(--light);
+            padding: 15px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .search-bar {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 15px 25px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            background-color: white;
+        }
+
+        .search-bar button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 30px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .search-bar button:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+            padding: 60px 0;
+            margin-bottom: 40px;
+            color: white;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .sale-badge {
+            display: inline-block;
+            background-color: white;
+            color: var(--danger);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Deals Banner */
+        .deals-banner {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: var(--radius);
+            padding: 30px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: var(--shadow);
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .banner-content h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .banner-content p {
+            color: var(--gray);
+            max-width: 500px;
+        }
+
+        .banner-countdown {
+            background-color: white;
+            padding: 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            min-width: 250px;
+        }
+
+        .countdown-label {
+            font-size: 14px;
+            color: var(--gray);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .countdown-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--danger);
+            background-color: #fee2e2;
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .countdown-unit {
+            font-size: 12px;
+            color: var(--gray);
+            margin-top: 5px;
+            text-transform: uppercase;
+        }
+
+        /* Promo Codes Section */
+        .promo-codes {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .promo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .promo-card {
+            background-color: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .promo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .promo-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .promo-code {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .promo-discount {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .promo-body {
+            padding: 25px;
+        }
+
+        .promo-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .promo-description {
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .promo-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .promo-validity {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        .copy-promo-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: var(--radius);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .copy-promo-btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* Hot Deals Section */
+        .hot-deals {
+            margin-bottom: 60px;
+        }
+
+        .hot-deals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .hot-deal-card {
+            background-color: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .hot-deal-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hot-deal-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--danger);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 700;
+            z-index: 1;
+        }
+
+        .hot-deal-image {
+            height: 220px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8fafc;
+        }
+
+        .hot-deal-image img {
+            max-height: 100%;
+            transition: var(--transition);
+        }
+
+        .hot-deal-card:hover .hot-deal-image img {
+            transform: scale(1.05);
+        }
+
+        .hot-deal-info {
+            padding: 20px;
+        }
+
+        .hot-deal-category {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .hot-deal-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .hot-deal-price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .hot-deal-current {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--danger);
+        }
+
+        .hot-deal-original {
+            font-size: 18px;
+            color: var(--gray);
+            text-decoration: line-through;
+        }
+
+        .hot-deal-saving {
+            font-size: 14px;
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        .hot-deal-rating {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .hot-deal-rating span {
+            color: var(--gray);
+            margin-left: 5px;
+        }
+
+        .hot-deal-progress {
+            margin-bottom: 20px;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background-color: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 4px;
+            width: 70%;
+        }
+
+        .hot-deal-add-to-cart {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--danger);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hot-deal-add-to-cart:hover {
+            background-color: #dc2626;
+        }
+
+        /* Flash Sale Section */
+        .flash-sale {
+            margin-bottom: 60px;
+        }
+
+        .flash-sale-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .flash-sale-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            color: var(--dark);
+        }
+
+        .flash-sale-countdown {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: white;
+            padding: 15px 25px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .flash-countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .flash-countdown-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--danger);
+        }
+
+        .flash-countdown-unit {
+            font-size: 12px;
+            color: var(--gray);
+            text-transform: uppercase;
+        }
+
+        .flash-sale-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .flash-sale-card {
+            background-color: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .flash-sale-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .flash-sale-image {
+            height: 180px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8fafc;
+            position: relative;
+        }
+
+        .flash-sale-image img {
+            max-height: 100%;
+            transition: var(--transition);
+        }
+
+        .flash-sale-card:hover .flash-sale-image img {
+            transform: scale(1.05);
+        }
+
+        .flash-sale-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(220, 38, 38, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .flash-sale-card:hover .flash-sale-overlay {
+            opacity: 1;
+        }
+
+        .flash-sale-info {
+            padding: 20px;
+        }
+
+        .flash-sale-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .flash-sale-price {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .flash-sale-current {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--danger);
+        }
+
+        .flash-sale-original {
+            font-size: 16px;
+            color: var(--gray);
+            text-decoration: line-through;
+        }
+
+        .flash-sale-add-to-cart {
+            width: 100%;
+            padding: 10px;
+            background-color: var(--dark);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .flash-sale-add-to-cart:hover {
+            background-color: var(--primary);
+        }
+
+        /* Newsletter Section */
+        .newsletter-deals {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            border-radius: var(--radius);
+            margin-bottom: 80px;
+        }
+
+        .newsletter-deals h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .newsletter-deals p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px 25px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+        }
+
+        .newsletter-form button {
+            background-color: var(--dark);
+            color: white;
+            border: none;
+            padding: 0 30px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-form button:hover {
+            background-color: #0f172a;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #b0b7c3;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #b0b7c3;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .deals-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .banner-countdown {
+                width: 100%;
+                max-width: 400px;
+            }
+            
+            .promo-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 90px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: var(--shadow);
+                transform: translateY(-150%);
+                transition: transform 0.5s ease;
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .page-header h1 {
+                font-size: 36px;
+            }
+            
+            .page-header p {
+                font-size: 16px;
+            }
+            
+            .flash-sale-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .flash-sale-countdown {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+                border-radius: var(--radius);
+            }
+
+            .newsletter-form input, 
+            .newsletter-form button {
+                width: 100%;
+                border-radius: var(--radius);
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .promo-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hot-deals-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .flash-sale-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .countdown-timer {
+                gap: 10px;
+            }
+            
+            .countdown-value {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navbar -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-bolt"></i>Electro<span>Shop</span>
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="deals.html" class="active">Deals</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+
+                <div class="nav-icons">
+                    <a href="login.html" class="user-icon" title="Login">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <a href="cart.html" class="cart-icon" title="Cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                    <div class="mobile-toggle" id="mobileToggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <div class="container">
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search for products, brands and categories...">
+                <button id="searchBtn"><i class="fas fa-search"></i> Search</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <div class="sale-badge">LIMITED TIME OFFERS</div>
+            <h1>Exclusive Deals & Special Offers</h1>
+            <p>Save big on top electronics with our exclusive discounts, promo codes, and flash sales. Don't miss out on these amazing deals!</p>
+            <a href="#hot-deals" class="btn btn-danger">Shop Hot Deals</a>
+        </div>
+    </div>
+
+    <!-- Deals Banner -->
+    <div class="container">
+        <div class="deals-banner">
+            <div class="banner-content">
+                <h2>Weekend Flash Sale</h2>
+                <p>Huge discounts on select items for a limited time only. Sale ends in:</p>
+            </div>
+            <div class="banner-countdown">
+                <div class="countdown-label">Sale Ends In</div>
+                <div class="countdown-timer" id="countdownTimer">
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="days">00</div>
+                        <div class="countdown-unit">Days</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="hours">00</div>
+                        <div class="countdown-unit">Hours</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="minutes">00</div>
+                        <div class="countdown-unit">Mins</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="seconds">00</div>
+                        <div class="countdown-unit">Secs</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Promo Codes Section -->
+    <div class="container">
+        <section class="promo-codes">
+            <div class="section-title">
+                <h2>Promo Codes & Coupons</h2>
+                <p>Apply these codes at checkout to get extra discounts on your purchase</p>
+            </div>
+
+            <div class="promo-grid" id="promoCodes">
+                <!-- Promo codes will be dynamically added here -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Hot Deals Section -->
+    <div class="container">
+        <section class="hot-deals" id="hot-deals">
+            <div class="section-title">
+                <h2>Hot Deals of the Week</h2>
+                <p>Massive discounts on our best-selling products</p>
+            </div>
+
+            <div class="hot-deals-grid" id="hotDeals">
+                <!-- Hot deals will be dynamically added here -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Flash Sale Section -->
+    <div class="container">
+        <section class="flash-sale">
+            <div class="flash-sale-header">
+                <h2>Flash Sale</h2>
+                <div class="flash-sale-countdown">
+                    <div class="flash-countdown-item">
+                        <div class="flash-countdown-value" id="flash-hours">12</div>
+                        <div class="flash-countdown-unit">Hours</div>
+                    </div>
+                    <div class="flash-countdown-item">
+                        <div class="flash-countdown-value" id="flash-minutes">45</div>
+                        <div class="flash-countdown-unit">Minutes</div>
+                    </div>
+                    <div class="flash-countdown-item">
+                        <div class="flash-countdown-value" id="flash-seconds">30</div>
+                        <div class="flash-countdown-unit">Seconds</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flash-sale-grid" id="flashSale">
+                <!-- Flash sale items will be dynamically added here -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Newsletter Section -->
+    <div class="container">
+        <section class="newsletter-deals">
+            <h2>Get Exclusive Deal Alerts</h2>
+            <p>Subscribe to our newsletter and be the first to know about our flash sales, special discounts, and exclusive offers.</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe Now</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>ElectroShop</h3>
+                    <p>Your trusted source for premium electronics and gadgets. We bring you the latest technology with exceptional customer service.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="deals.html">Deals & Offers</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Refunds</a></li>
+                        <li><a href="#">Warranty</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Tech Street, San Francisco, CA</li>
+                        <li><i class="fas fa-phone"></i> +1 (234) 567-8900</li>
+                        <li><i class="fas fa-envelope"></i> support@electroshop.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Sat: 9AM - 8PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 ElectroShop. All rights reserved. | Designed with <i class="fas fa-heart" style="color: var(--secondary);"></i> for tech enthusiasts</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ============================================
+        // JavaScript for Deals Page
+        // ============================================
+
+        // DOM Elements
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.querySelector('.nav-links');
+        const cartCount = document.getElementById('cartCount');
+        const searchInput = document.getElementById('searchInput');
+        const searchBtn = document.getElementById('searchBtn');
+        const countdownTimer = document.getElementById('countdownTimer');
+        const daysElement = document.getElementById('days');
+        const hoursElement = document.getElementById('hours');
+        const minutesElement = document.getElementById('minutes');
+        const secondsElement = document.getElementById('seconds');
+        const flashHoursElement = document.getElementById('flash-hours');
+        const flashMinutesElement = document.getElementById('flash-minutes');
+        const flashSecondsElement = document.getElementById('flash-seconds');
+        const promoCodesContainer = document.getElementById('promoCodes');
+        const hotDealsContainer = document.getElementById('hotDeals');
+        const flashSaleContainer = document.getElementById('flashSale');
+        const newsletterForm = document.getElementById('newsletterForm');
+
+        // Cart Data
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Promo Codes Data
+        const promoCodes = [
+            {
+                code: "FLASH30",
+                discount: "30% OFF",
+                title: "Flash Sale Discount",
+                description: "Get 30% off on all flash sale items. Minimum purchase of $100 required.",
+                validity: "Valid until: Dec 31, 2023",
+                usesRemaining: 150
+            },
+            {
+                code: "WELCOME15",
+                discount: "15% OFF",
+                title: "New Customer Discount",
+                description: "First-time customers get 15% off on their first order. No minimum purchase required.",
+                validity: "Valid for new customers only",
+                usesRemaining: "Unlimited"
+            },
+            {
+                code: "TECH25",
+                discount: "25% OFF",
+                title: "Tech Week Special",
+                description: "25% off on all laptops and smartphones. Limited time offer during Tech Week.",
+                validity: "Valid until: Nov 30, 2023",
+                usesRemaining: 89
+            },
+            {
+                code: "AUDIO20",
+                discount: "20% OFF",
+                title: "Audio & Headphones",
+                description: "20% off on all audio products including headphones, earbuds, and speakers.",
+                validity: "Valid until: Dec 15, 2023",
+                usesRemaining: 203
+            }
+        ];
+
+        // Hot Deals Products Data
+        const hotDeals = [
+            {
+                id: 101,
+                name: "UltraBook Pro Laptop",
+                category: "Laptops",
+                price: 999.99,
+                originalPrice: 1499.99,
+                discountPercent: 33,
+                rating: 4.8,
+                reviewCount: 124,
+                badge: "33% OFF",
+                image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                stockRemaining: 15,
+                totalStock: 50
+            },
+            {
+                id: 102,
+                name: "Quantum 5G Smartphone",
+                category: "Smartphones",
+                price: 699.99,
+                originalPrice: 999.99,
+                discountPercent: 30,
+                rating: 4.6,
+                reviewCount: 89,
+                badge: "30% OFF",
+                image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                stockRemaining: 8,
+                totalStock: 25
+            },
+            {
+                id: 103,
+                name: "Zenith Wireless Earbuds",
+                category: "Audio",
+                price: 149.99,
+                originalPrice: 249.99,
+                discountPercent: 40,
+                rating: 4.7,
+                reviewCount: 203,
+                badge: "40% OFF",
+                image: "https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                stockRemaining: 22,
+                totalStock: 75
+            },
+            {
+                id: 104,
+                name: "Nova 4K Smart TV",
+                category: "TV & Home",
+                price: 649.99,
+                originalPrice: 999.99,
+                discountPercent: 35,
+                rating: 4.9,
+                reviewCount: 67,
+                badge: "35% OFF",
+                image: "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                stockRemaining: 5,
+                totalStock: 20
+            },
+            {
+                id: 105,
+                name: "GameStation Pro",
+                category: "Gaming",
+                price: 399.99,
+                originalPrice: 549.99,
+                discountPercent: 27,
+                rating: 4.9,
+                reviewCount: 312,
+                badge: "27% OFF",
+                image: "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                stockRemaining: 12,
+                totalStock: 40
+            },
+            {
+                id: 106,
+                name: "Pixel Pro Camera",
+                category: "Cameras",
+                price: 999.99,
+                originalPrice: 1499.99,
+                discountPercent: 33,
+                rating: 4.7,
+                reviewCount: 112,
+                badge: "33% OFF",
+                image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                stockRemaining: 7,
+                totalStock: 30
+            }
+        ];
+
+        // Flash Sale Products Data
+        const flashSaleProducts = [
+            {
+                id: 201,
+                name: "Portable Bluetooth Speaker",
+                category: "Audio",
+                price: 79.99,
+                originalPrice: 149.99,
+                discountPercent: 47,
+                rating: 4.6,
+                reviewCount: 234,
+                image: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 202,
+                name: "Gaming Keyboard Pro",
+                category: "Gaming",
+                price: 99.99,
+                originalPrice: 179.99,
+                discountPercent: 44,
+                rating: 4.7,
+                reviewCount: 189,
+                image: "https://images.unsplash.com/photo-1541140532154-b024d705b90a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 203,
+                name: "Action Cam Extreme",
+                category: "Cameras",
+                price: 299.99,
+                originalPrice: 449.99,
+                discountPercent: 33,
+                rating: 4.6,
+                reviewCount: 156,
+                image: "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 204,
+                name: "Smart Home Hub",
+                category: "TV & Home",
+                price: 69.99,
+                originalPrice: 129.99,
+                discountPercent: 46,
+                rating: 4.5,
+                reviewCount: 178,
+                image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 205,
+                name: "Studio Pro Headphones",
+                category: "Audio",
+                price: 249.99,
+                originalPrice: 399.99,
+                discountPercent: 38,
+                rating: 4.8,
+                reviewCount: 145,
+                image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 206,
+                name: "ThinkPad Business Laptop",
+                category: "Laptops",
+                price: 999.99,
+                originalPrice: 1599.99,
+                discountPercent: 38,
+                rating: 4.7,
+                reviewCount: 67,
+                image: "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            }
+        ];
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+            setupEventListeners();
+            startCountdownTimer();
+            startFlashSaleCountdown();
+            renderPromoCodes();
+            renderHotDeals();
+            renderFlashSale();
+        });
+
+        // Setup Event Listeners
+        function setupEventListeners() {
+            // Mobile menu toggle
+            mobileToggle.addEventListener('click', toggleMobileMenu);
+
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+
+            // Search functionality
+            searchBtn.addEventListener('click', handleSearch);
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    handleSearch();
+                }
+            });
+
+            // Newsletter subscription
+            newsletterForm.addEventListener('submit', handleNewsletterSubmit);
+        }
+
+        // Mobile Menu Functions
+        function toggleMobileMenu() {
+            navLinks.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        }
+
+        function closeMobileMenu() {
+            navLinks.classList.remove('active');
+            mobileToggle.querySelector('i').classList.add('fa-bars');
+            mobileToggle.querySelector('i').classList.remove('fa-times');
+        }
+
+        // Cart Functions
+        function updateCartCount() {
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
+
+        function addToCart(productId, productType = 'hotDeal') {
+            let product;
+            
+            if (productType === 'hotDeal') {
+                product = hotDeals.find(p => p.id === productId);
+            } else if (productType === 'flashSale') {
+                product = flashSaleProducts.find(p => p.id === productId);
+            }
+            
+            if (!product) return null;
+            
+            // Check if product already exists in cart
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    quantity: 1,
+                    imageUrl: product.image,
+                    type: productType
+                });
+            }
+            
+            // Update localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            // Update cart count
+            updateCartCount();
+            
+            return product;
+        }
+
+        // Countdown Timer Functions
+        function startCountdownTimer() {
+            // Set the end date for the countdown (3 days from now)
+            const endDate = new Date();
+            endDate.setDate(endDate.getDate() + 3);
+            
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = endDate - now;
+                
+                // Calculate days, hours, minutes, seconds
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                // Update the display
+                daysElement.textContent = days < 10 ? '0' + days : days;
+                hoursElement.textContent = hours < 10 ? '0' + hours : hours;
+                minutesElement.textContent = minutes < 10 ? '0' + minutes : minutes;
+                secondsElement.textContent = seconds < 10 ? '0' + seconds : seconds;
+                
+                // If the countdown is over
+                if (distance < 0) {
+                    clearInterval(countdownInterval);
+                    daysElement.textContent = '00';
+                    hoursElement.textContent = '00';
+                    minutesElement.textContent = '00';
+                    secondsElement.textContent = '00';
+                }
+            }
+            
+            // Update every second
+            updateCountdown();
+            const countdownInterval = setInterval(updateCountdown, 1000);
+        }
+
+        function startFlashSaleCountdown() {
+            // Set the end time for flash sale (12 hours from now)
+            const endTime = new Date();
+            endTime.setHours(endTime.getHours() + 12);
+            
+            function updateFlashCountdown() {
+                const now = new Date().getTime();
+                const distance = endTime - now;
+                
+                // Calculate hours, minutes, seconds
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                // Update the display
+                flashHoursElement.textContent = hours < 10 ? '0' + hours : hours;
+                flashMinutesElement.textContent = minutes < 10 ? '0' + minutes : minutes;
+                flashSecondsElement.textContent = seconds < 10 ? '0' + seconds : seconds;
+                
+                // If the countdown is over
+                if (distance < 0) {
+                    clearInterval(flashCountdownInterval);
+                    flashHoursElement.textContent = '00';
+                    flashMinutesElement.textContent = '00';
+                    flashSecondsElement.textContent = '00';
+                }
+            }
+            
+            // Update every second
+            updateFlashCountdown();
+            const flashCountdownInterval = setInterval(updateFlashCountdown, 1000);
+        }
+
+        // Render Promo Codes
+        function renderPromoCodes() {
+            promoCodesContainer.innerHTML = '';
+            
+            promoCodes.forEach(promo => {
+                const promoCard = document.createElement('div');
+                promoCard.className = 'promo-card';
+                
+                promoCard.innerHTML = `
+                    <div class="promo-header">
+                        <div class="promo-code">${promo.code}</div>
+                        <div class="promo-discount">${promo.discount}</div>
+                    </div>
+                    <div class="promo-body">
+                        <h3 class="promo-title">${promo.title}</h3>
+                        <p class="promo-description">${promo.description}</p>
+                        <div class="promo-details">
+                            <div class="promo-validity">${promo.validity}</div>
+                            <button class="copy-promo-btn" data-code="${promo.code}">
+                                Copy Code
+                            </button>
+                        </div>
+                        <div class="promo-uses">
+                            <small>${promo.usesRemaining === "Unlimited" ? "Unlimited uses" : `${promo.usesRemaining} uses remaining`}</small>
+                        </div>
+                    </div>
+                `;
+                
+                promoCodesContainer.appendChild(promoCard);
+            });
+            
+            // Add event listeners to Copy Code buttons
+            document.querySelectorAll('.copy-promo-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const promoCode = this.getAttribute('data-code');
+                    copyToClipboard(promoCode);
+                    
+                    // Show feedback
+                    const originalText = this.textContent;
+                    this.textContent = 'Copied!';
+                    this.style.backgroundColor = 'var(--success)';
+                    
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                        this.style.backgroundColor = '';
+                    }, 2000);
+                    
+                    showNotification(`Promo code ${promoCode} copied to clipboard!`);
+                });
+            });
+        }
+
+        // Generate Star Rating
+        function generateStarRating(rating) {
+            let stars = '';
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 >= 0.5;
+            
+            for (let i = 1; i <= 5; i++) {
+                if (i <= fullStars) {
+                    stars += '<i class="fas fa-star"></i>';
+                } else if (i === fullStars + 1 && hasHalfStar) {
+                    stars += '<i class="fas fa-star-half-alt"></i>';
+                } else {
+                    stars += '<i class="far fa-star"></i>';
+                }
+            }
+            
+            return stars;
+        }
+
+        // Render Hot Deals
+        function renderHotDeals() {
+            hotDealsContainer.innerHTML = '';
+            
+            hotDeals.forEach(deal => {
+                const dealCard = document.createElement('div');
+                dealCard.className = 'hot-deal-card';
+                
+                // Calculate progress percentage
+                const progressPercent = ((deal.totalStock - deal.stockRemaining) / deal.totalStock) * 100;
+                
+                dealCard.innerHTML = `
+                    <div class="hot-deal-badge">${deal.badge}</div>
+                    <div class="hot-deal-image">
+                        <img src="${deal.image}" alt="${deal.name}">
+                    </div>
+                    <div class="hot-deal-info">
+                        <div class="hot-deal-category">${deal.category}</div>
+                        <h3 class="hot-deal-title">${deal.name}</h3>
+                        <div class="hot-deal-price">
+                            <span class="hot-deal-current">$${deal.price.toFixed(2)}</span>
+                            <span class="hot-deal-original">$${deal.originalPrice.toFixed(2)}</span>
+                            <span class="hot-deal-saving">Save $${(deal.originalPrice - deal.price).toFixed(2)}</span>
+                        </div>
+                        <div class="hot-deal-rating">
+                            ${generateStarRating(deal.rating)}
+                            <span>(${deal.reviewCount})</span>
+                        </div>
+                        <div class="hot-deal-progress">
+                            <div class="progress-label">
+                                <span>Hurry! Only ${deal.stockRemaining} left</span>
+                                <span>${deal.stockRemaining} of ${deal.totalStock}</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: ${progressPercent}%"></div>
+                            </div>
+                        </div>
+                        <button class="hot-deal-add-to-cart" data-id="${deal.id}">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+                `;
+                
+                hotDealsContainer.appendChild(dealCard);
+            });
+            
+            // Add event listeners to Add to Cart buttons
+            document.querySelectorAll('.hot-deal-add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    const product = addToCart(productId, 'hotDeal');
+                    
+                    if (!product) return;
+                    
+                    // Show feedback
+                    const originalContent = this.innerHTML;
+                    this.innerHTML = '<i class="fas fa-check"></i> Added!';
+                    this.style.backgroundColor = 'var(--success)';
+                    
+                    setTimeout(() => {
+                        this.innerHTML = originalContent;
+                        this.style.backgroundColor = '';
+                    }, 2000);
+                    
+                    // Show notification
+                    showNotification(`${product.name} added to cart!`);
+                });
+            });
+        }
+
+        // Render Flash Sale
+        function renderFlashSale() {
+            flashSaleContainer.innerHTML = '';
+            
+            flashSaleProducts.forEach(product => {
+                const flashCard = document.createElement('div');
+                flashCard.className = 'flash-sale-card';
+                
+                flashCard.innerHTML = `
+                    <div class="flash-sale-image">
+                        <img src="${product.image}" alt="${product.name}">
+                        <div class="flash-sale-overlay">${product.discountPercent}% OFF</div>
+                    </div>
+                    <div class="flash-sale-info">
+                        <h4 class="flash-sale-title">${product.name}</h4>
+                        <div class="flash-sale-price">
+                            <span class="flash-sale-current">$${product.price.toFixed(2)}</span>
+                            <span class="flash-sale-original">$${product.originalPrice.toFixed(2)}</span>
+                        </div>
+                        <div class="flash-sale-rating">
+                            ${generateStarRating(product.rating)}
+                            <span>(${product.reviewCount})</span>
+                        </div>
+                        <button class="flash-sale-add-to-cart" data-id="${product.id}">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+                `;
+                
+                flashSaleContainer.appendChild(flashCard);
+            });
+            
+            // Add event listeners to Add to Cart buttons
+            document.querySelectorAll('.flash-sale-add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    const product = addToCart(productId, 'flashSale');
+                    
+                    if (!product) return;
+                    
+                    // Show feedback
+                    const originalContent = this.innerHTML;
+                    this.innerHTML = '<i class="fas fa-check"></i> Added!';
+                    this.style.backgroundColor = 'var(--success)';
+                    
+                    setTimeout(() => {
+                        this.innerHTML = originalContent;
+                        this.style.backgroundColor = '';
+                    }, 2000);
+                    
+                    // Show notification
+                    showNotification(`${product.name} added to cart!`);
+                });
+            });
+        }
+
+        // Utility Functions
+        function copyToClipboard(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+        }
+
+        // Search Functionality
+        function handleSearch() {
+            const searchTerm = searchInput.value.trim();
+            
+            if (!searchTerm) {
+                showNotification('Please enter a search term', 'warning');
+                return;
+            }
+            
+            // Redirect to products page with search query
+            window.location.href = `products.html?search=${encodeURIComponent(searchTerm)}`;
+        }
+
+        // Newsletter Subscription
+        function handleNewsletterSubmit(e) {
+            e.preventDefault();
+            const email = e.target.querySelector('input[type="email"]').value;
+            
+            // Simple email validation
+            if (!validateEmail(email)) {
+                showNotification('Please enter a valid email address', 'warning');
+                return;
+            }
+            
+            // In a real app, you would send this to your server
+            showNotification('Thank you for subscribing to deal alerts!', 'success');
+            
+            // Reset the form
+            e.target.reset();
+        }
+
+        function validateEmail(email) {
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        // Notification System
+        function showNotification(message, type = 'success') {
+            // Remove existing notifications
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <span>${message}</span>
+                <button class="notification-close"><i class="fas fa-times"></i></button>
+            `;
+            
+            // Add styles for notification if not already added
+            if (!document.querySelector('#notification-styles')) {
+                const styleElement = document.createElement('style');
+                styleElement.id = 'notification-styles';
+                styleElement.textContent = `
+                    .notification {
+                        position: fixed;
+                        top: 100px;
+                        right: 20px;
+                        background-color: var(--success);
+                        color: white;
+                        padding: 15px 20px;
+                        border-radius: var(--radius);
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        min-width: 300px;
+                        max-width: 400px;
+                        box-shadow: var(--shadow-lg);
+                        z-index: 9999;
+                        animation: slideIn 0.3s ease;
+                    }
+                    
+                    .notification.warning {
+                        background-color: var(--accent);
+                    }
+                    
+                    .notification.info {
+                        background-color: var(--primary);
+                    }
+                    
+                    .notification-close {
+                        background: none;
+                        border: none;
+                        color: white;
+                        cursor: pointer;
+                        margin-left: 15px;
+                    }
+                    
+                    @keyframes slideIn {
+                        from { transform: translateX(100%); opacity: 0; }
+                        to { transform: translateX(0); opacity: 1; }
+                    }
+                    
+                    @keyframes slideOut {
+                        from { transform: translateX(0); opacity: 1; }
+                        to { transform: translateX(100%); opacity: 0; }
+                    }
+                    
+                    @media (max-width: 576px) {
+                        .notification {
+                            left: 20px;
+                            right: 20px;
+                            min-width: auto;
+                        }
+                    }
+                `;
+                document.head.appendChild(styleElement);
+            }
+            
+            // Add close functionality
+            notification.querySelector('.notification-close').addEventListener('click', function() {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            });
+            
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.style.animation = 'slideOut 0.3s ease';
+                    setTimeout(() => notification.remove(), 300);
+                }
+            }, 5000);
+            
+            // Add to document
+            document.body.appendChild(notification);
+        }
+    </script>
+</body>
+</html>

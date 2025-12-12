@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | ElectroShop - Premium Electronics Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --secondary: #7c3aed;
+            --accent: #f59e0b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --success: #10b981;
+            --danger: #ef4444;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+            --radius: 8px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            background-color: #f1f5f9;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(37, 99, 235, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Header & Navbar */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 16px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        .nav-icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-icons a {
+            color: var(--dark);
+            font-size: 20px;
+            margin-left: 20px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-icons a:hover {
+            color: var(--primary);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--secondary);
+            color: white;
+            font-size: 12px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Search Bar */
+        .search-container {
+            background-color: var(--light);
+            padding: 15px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .search-bar {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 15px 25px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            background-color: white;
+        }
+
+        .search-bar button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 30px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .search-bar button:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .page-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            margin-bottom: 80px;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        /* Contact Info */
+        .contact-info h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            color: var(--dark);
+            margin-bottom: 30px;
+        }
+
+        .contact-info p {
+            color: var(--gray);
+            margin-bottom: 40px;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(37, 99, 235, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .contact-details h3 {
+            font-size: 18px;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .contact-details p {
+            color: var(--gray);
+            margin-bottom: 0;
+        }
+
+        .contact-details a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-details a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        .business-hours {
+            background-color: white;
+            padding: 25px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .business-hours h3 {
+            font-size: 20px;
+            color: var(--dark);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .hours-list {
+            list-style: none;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+
+        .day {
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        .time {
+            color: var(--gray);
+        }
+
+        .hours-note {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #fef3c7;
+            border-radius: var(--radius);
+            font-size: 14px;
+            color: #92400e;
+        }
+
+        /* Contact Form */
+        .contact-form-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-form-container h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .form-intro {
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 25px;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #cbd5e1;
+            border-radius: var(--radius);
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .contact-form input:focus,
+        .contact-form select:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: white;
+            border-radius: var(--radius);
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .faq-item.active {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .faq-question {
+            padding: 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--dark);
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-question {
+            background-color: rgba(37, 99, 235, 0.05);
+            color: var(--primary);
+        }
+
+        .faq-question:hover {
+            background-color: rgba(37, 99, 235, 0.05);
+        }
+
+        .faq-icon {
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 25px 25px;
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        .faq-answer ul {
+            margin-left: 20px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .faq-answer li {
+            color: var(--gray);
+            margin-bottom: 8px;
+        }
+
+        /* Map Section */
+        .map-section {
+            margin-bottom: 80px;
+        }
+
+        .map-container {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            height: 400px;
+        }
+
+        .map-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 30px;
+            border-radius: var(--radius);
+            margin-top: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .map-address h3 {
+            font-size: 20px;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .map-address p {
+            color: var(--gray);
+        }
+
+        /* Live Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .chat-toggle {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+
+        .chat-toggle:hover {
+            background-color: #1d4ed8;
+            transform: scale(1.1);
+        }
+
+        .chat-box {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 350px;
+            background-color: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            display: none;
+        }
+
+        .chat-box.active {
+            display: block;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chat-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px;
+            border-radius: var(--radius) var(--radius) 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h3 {
+            font-size: 18px;
+        }
+
+        .chat-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .chat-body {
+            padding: 20px;
+            height: 300px;
+            overflow-y: auto;
+        }
+
+        .chat-message {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-message.bot {
+            align-items: flex-start;
+        }
+
+        .chat-message.user {
+            align-items: flex-end;
+        }
+
+        .message-text {
+            padding: 12px 16px;
+            border-radius: 20px;
+            max-width: 80%;
+            font-size: 14px;
+        }
+
+        .bot .message-text {
+            background-color: #f1f5f9;
+            color: var(--dark);
+        }
+
+        .user .message-text {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .message-time {
+            font-size: 12px;
+            color: var(--gray);
+            margin-top: 5px;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid #cbd5e1;
+            border-radius: 50px;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .chat-input button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .chat-input button:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #b0b7c3;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #b0b7c3;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            
+            .chat-box {
+                width: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 90px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: var(--shadow);
+                transform: translateY(-150%);
+                transition: transform 0.5s ease;
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .page-header h1 {
+                font-size: 36px;
+            }
+
+            .page-header p {
+                font-size: 16px;
+            }
+
+            .contact-info h2,
+            .contact-form-container h2 {
+                font-size: 28px;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .chat-widget {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .chat-box {
+                width: calc(100vw - 40px);
+                right: 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .contact-form-container {
+                padding: 25px;
+            }
+            
+            .contact-method {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .map-info {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            
+            .chat-toggle {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navbar -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-bolt"></i>Electro<span>Shop</span>
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="deals.html">Deals</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+
+                <div class="nav-icons">
+                    <a href="login.html" class="user-icon" title="Login">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <a href="cart.html" class="cart-icon" title="Cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                    <div class="mobile-toggle" id="mobileToggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <div class="container">
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search for products, brands and categories...">
+                <button id="searchBtn"><i class="fas fa-search"></i> Search</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>We're here to help! Get in touch with our team for any questions, support, or feedback. We're committed to providing you with the best customer experience.</p>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="container">
+        <section class="contact-section">
+            <div class="contact-content">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h2>Get In Touch</h2>
+                    <p>Have questions about our products or need assistance with an order? Our customer support team is ready to help you via phone, email, or live chat.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Call Us</h3>
+                                <p><a href="tel:+18885558324">(888) 555-TECH</a></p>
+                                <p>Monday to Friday, 8AM to 8PM EST</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Email Us</h3>
+                                <p><a href="mailto:support@electroshop.com">support@electroshop.com</a></p>
+                                <p>We typically respond within 2 hours</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Visit Our Store</h3>
+                                <p>123 Tech Street, San Francisco, CA 94107</p>
+                                <p>Showroom open Monday to Saturday</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="business-hours">
+                        <h3>Business Hours</h3>
+                        <ul class="hours-list">
+                            <li>
+                                <span class="day">Monday - Friday</span>
+                                <span class="time">9:00 AM - 8:00 PM</span>
+                            </li>
+                            <li>
+                                <span class="day">Saturday</span>
+                                <span class="time">10:00 AM - 6:00 PM</span>
+                            </li>
+                            <li>
+                                <span class="day">Sunday</span>
+                                <span class="time">11:00 AM - 5:00 PM</span>
+                            </li>
+                        </ul>
+                        <div class="hours-note">
+                            <i class="fas fa-info-circle"></i> Our online support is available 24/7 via live chat
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <h2>Send Us a Message</h2>
+                    <p class="form-intro">Fill out the form below and we'll get back to you as soon as possible.</p>
+                    
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="order-inquiry">Order Inquiry</option>
+                                <option value="product-question">Product Question</option>
+                                <option value="technical-support">Technical Support</option>
+                                <option value="returns-refunds">Returns & Refunds</option>
+                                <option value="billing">Billing Issue</option>
+                                <option value="general">General Question</option>
+                                <option value="feedback">Feedback/Suggestion</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" placeholder="Please provide details about your inquiry..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary submit-btn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="container">
+        <section class="faq-section">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find quick answers to common questions about our products and services</p>
+            </div>
+            
+            <div class="faq-container" id="faqContainer">
+                <!-- FAQ items will be dynamically added here -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Map Section -->
+    <div class="container">
+        <section class="map-section">
+            <div class="section-title">
+                <h2>Visit Our Store</h2>
+                <p>Come see our products in person at our San Francisco showroom</p>
+            </div>
+            
+            <div class="map-container">
+                <!-- Embedded Google Map -->
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.681434336393!2d-122.4194162846823!3d37.77492977975936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808c5e72b7f5%3A0x8a4f1a7a1a6d5c5d!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1629823456789!5m2!1sen!2sus" 
+                    width="100%" 
+                    height="400" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+            
+            <div class="map-info">
+                <div class="map-address">
+                    <h3>ElectroShop Headquarters</h3>
+                    <p>123 Tech Street, San Francisco, CA 94107</p>
+                    <p>Parking available in the adjacent garage</p>
+                </div>
+                <a href="https://maps.google.com/?q=123+Tech+Street+San+Francisco+CA" target="_blank" class="btn btn-primary">
+                    <i class="fas fa-directions"></i> Get Directions
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Live Chat Widget -->
+    <div class="chat-widget">
+        <div class="chat-toggle" id="chatToggle">
+            <i class="fas fa-comment"></i>
+        </div>
+        <div class="chat-box" id="chatBox">
+            <div class="chat-header">
+                <h3>Live Chat Support</h3>
+                <button class="chat-close" id="chatClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-body" id="chatBody">
+                <!-- Chat messages will be dynamically added here -->
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type your message...">
+                <button id="chatSend">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>ElectroShop</h3>
+                    <p>Your trusted source for premium electronics and gadgets. We bring you the latest technology with exceptional customer service.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="deals.html">Deals & Offers</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Refunds</a></li>
+                        <li><a href="#">Warranty</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Tech Street, San Francisco, CA</li>
+                        <li><i class="fas fa-phone"></i> +1 (234) 567-8900</li>
+                        <li><i class="fas fa-envelope"></i> support@electroshop.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Sat: 9AM - 8PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 ElectroShop. All rights reserved. | Designed with <i class="fas fa-heart" style="color: var(--secondary);"></i> for tech enthusiasts</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ============================================
+        // JavaScript for Contact Page
+        // ============================================
+
+        // DOM Elements
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.querySelector('.nav-links');
+        const cartCount = document.getElementById('cartCount');
+        const searchInput = document.getElementById('searchInput');
+        const searchBtn = document.getElementById('searchBtn');
+        const contactForm = document.getElementById('contactForm');
+        const faqContainer = document.getElementById('faqContainer');
+        const chatToggle = document.getElementById('chatToggle');
+        const chatBox = document.getElementById('chatBox');
+        const chatClose = document.getElementById('chatClose');
+        const chatBody = document.getElementById('chatBody');
+        const chatInput = document.getElementById('chatInput');
+        const chatSend = document.getElementById('chatSend');
+
+        // Cart Data
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // FAQ Data
+        const faqData = [
+            {
+                question: "How can I track my order?",
+                answer: "Once your order ships, you'll receive a confirmation email with a tracking number and a link to track your package. You can also track your order by logging into your ElectroShop account and visiting the 'Order History' section."
+            },
+            {
+                question: "What is your return policy?",
+                answer: "We offer a 30-day return policy for most items. Items must be in original condition with all accessories and packaging. Some items like opened software, digital downloads, and personalized products may not be eligible for return. Please visit our Returns & Refunds page for complete details."
+            },
+            {
+                question: "Do you offer international shipping?",
+                answer: "Yes, we ship to over 50 countries worldwide. Shipping costs and delivery times vary by destination. You can view available shipping options and costs during checkout. Please note that international orders may be subject to customs duties and taxes, which are the responsibility of the recipient."
+            },
+            {
+                question: "How do I contact customer support?",
+                answer: "You can reach our customer support team through multiple channels:<ul><li>Phone: (888) 555-TECH (Monday-Friday, 8AM-8PM EST)</li><li>Email: support@electroshop.com</li><li>Live Chat: Available 24/7 on our website</li><li>In-Store: Visit our San Francisco showroom during business hours</li></ul>"
+            },
+            {
+                question: "What payment methods do you accept?",
+                answer: "We accept all major credit cards (Visa, MasterCard, American Express, Discover), PayPal, Apple Pay, Google Pay, and ElectroShop gift cards. For business customers, we also offer purchase orders and net-30 terms upon approval."
+            },
+            {
+                question: "How long does shipping take?",
+                answer: "Standard shipping typically takes 3-7 business days within the continental US. Expedited shipping options are available at checkout for faster delivery. International shipping times vary by destination but generally take 7-21 business days. You'll receive tracking information as soon as your order ships."
+            }
+        ];
+
+        // Chat Bot Responses
+        const chatResponses = [
+            {
+                keywords: ["hello", "hi", "hey", "greetings"],
+                response: "Hello! I'm ElectroBot, your virtual assistant. How can I help you today?"
+            },
+            {
+                keywords: ["order", "track", "shipment", "delivery"],
+                response: "To track your order, please check your email for the tracking number or log into your ElectroShop account. Need help with a specific order?"
+            },
+            {
+                keywords: ["return", "refund", "exchange"],
+                response: "We offer a 30-day return policy. Items must be in original condition. Would you like me to provide more details about our return process?"
+            },
+            {
+                keywords: ["price", "cost", "expensive", "cheap"],
+                response: "Our prices are competitive and we often have deals and promotions. Check our Deals page for current offers!"
+            },
+            {
+                keywords: ["contact", "support", "help", "assistance"],
+                response: "You can reach our support team at (888) 555-TECH or support@electroshop.com. Live chat is also available 24/7!"
+            },
+            {
+                keywords: ["hours", "open", "close", "business"],
+                response: "Our phone support is available Monday-Friday 8AM-8PM EST. Our San Francisco showroom is open Monday-Saturday 9AM-8PM and Sunday 11AM-5PM."
+            },
+            {
+                keywords: ["thanks", "thank you", "appreciate"],
+                response: "You're welcome! Is there anything else I can help you with?"
+            },
+            {
+                keywords: ["bye", "goodbye", "exit"],
+                response: "Thank you for chatting with us! Have a great day!"
+            }
+        ];
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+            setupEventListeners();
+            renderFAQ();
+            initializeChat();
+        });
+
+        // Setup Event Listeners
+        function setupEventListeners() {
+            // Mobile menu toggle
+            mobileToggle.addEventListener('click', toggleMobileMenu);
+
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+
+            // Search functionality
+            searchBtn.addEventListener('click', handleSearch);
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    handleSearch();
+                }
+            });
+
+            // Contact form submission
+            contactForm.addEventListener('submit', handleContactFormSubmit);
+
+            // Chat functionality
+            chatToggle.addEventListener('click', toggleChat);
+            chatClose.addEventListener('click', closeChat);
+            chatSend.addEventListener('click', sendChatMessage);
+            chatInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendChatMessage();
+                }
+            });
+        }
+
+        // Mobile Menu Functions
+        function toggleMobileMenu() {
+            navLinks.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        }
+
+        function closeMobileMenu() {
+            navLinks.classList.remove('active');
+            mobileToggle.querySelector('i').classList.add('fa-bars');
+            mobileToggle.querySelector('i').classList.remove('fa-times');
+        }
+
+        // Cart Functions
+        function updateCartCount() {
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
+
+        // Render FAQ
+        function renderFAQ() {
+            faqContainer.innerHTML = '';
+            
+            faqData.forEach((faq, index) => {
+                const faqItem = document.createElement('div');
+                faqItem.className = 'faq-item';
+                faqItem.id = `faq-${index}`;
+                
+                faqItem.innerHTML = `
+                    <div class="faq-question">
+                        <span>${faq.question}</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        ${faq.answer}
+                    </div>
+                `;
+                
+                faqContainer.appendChild(faqItem);
+                
+                // Add click event to toggle FAQ
+                const faqQuestion = faqItem.querySelector('.faq-question');
+                faqQuestion.addEventListener('click', function() {
+                    const isActive = faqItem.classList.contains('active');
+                    
+                    // Close all FAQ items
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    
+                    // Open clicked FAQ if it wasn't active
+                    if (!isActive) {
+                        faqItem.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        // Contact Form Submission
+        function handleContactFormSubmit(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(contactForm);
+            const formObject = Object.fromEntries(formData);
+            
+            // Simple validation
+            if (!formObject.firstName || !formObject.lastName || !formObject.email || !formObject.subject || !formObject.message) {
+                showNotification('Please fill in all required fields', 'warning');
+                return;
+            }
+            
+            // In a real application, you would send this data to a server
+            // For demo purposes, we'll just show a success message
+            console.log('Form submitted:', formObject);
+            
+            // Show success message
+            showNotification('Thank you for your message! We\'ll get back to you within 24 hours.', 'success');
+            
+            // Reset form
+            contactForm.reset();
+            
+            // Scroll to top of form
+            contactForm.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Chat Functions
+        function initializeChat() {
+            // Add initial bot message
+            addChatMessage('bot', 'Hello! I\'m ElectroBot, your virtual assistant. How can I help you today?');
+        }
+
+        function toggleChat() {
+            chatBox.classList.toggle('active');
+            if (chatBox.classList.contains('active')) {
+                chatInput.focus();
+            }
+        }
+
+        function closeChat() {
+            chatBox.classList.remove('active');
+        }
+
+        function addChatMessage(sender, text) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${sender}`;
+            
+            const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            
+            messageDiv.innerHTML = `
+                <div class="message-text">${text}</div>
+                <div class="message-time">${time}</div>
+            `;
+            
+            chatBody.appendChild(messageDiv);
+            
+            // Scroll to bottom of chat
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function sendChatMessage() {
+            const message = chatInput.value.trim();
+            
+            if (!message) return;
+            
+            // Add user message
+            addChatMessage('user', message);
+            
+            // Clear input
+            chatInput.value = '';
+            
+            // Simulate typing delay
+            setTimeout(() => {
+                // Find appropriate bot response
+                let botResponse = "I'm not sure I understand. Could you please rephrase your question? You can also contact our support team directly for assistance.";
+                
+                const lowerMessage = message.toLowerCase();
+                
+                for (const response of chatResponses) {
+                    for (const keyword of response.keywords) {
+                        if (lowerMessage.includes(keyword)) {
+                            botResponse = response.response;
+                            break;
+                        }
+                    }
+                }
+                
+                // Add bot response
+                addChatMessage('bot', botResponse);
+            }, 1000);
+        }
+
+        // Search Functionality
+        function handleSearch() {
+            const searchTerm = searchInput.value.trim();
+            
+            if (!searchTerm) {
+                showNotification('Please enter a search term', 'warning');
+                return;
+            }
+            
+            // Redirect to products page with search query
+            window.location.href = `products.html?search=${encodeURIComponent(searchTerm)}`;
+        }
+
+        // Notification System
+        function showNotification(message, type = 'success') {
+            // Remove existing notifications
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <span>${message}</span>
+                <button class="notification-close"><i class="fas fa-times"></i></button>
+            `;
+            
+            // Add styles for notification if not already added
+            if (!document.querySelector('#notification-styles')) {
+                const styleElement = document.createElement('style');
+                styleElement.id = 'notification-styles';
+                styleElement.textContent = `
+                    .notification {
+                        position: fixed;
+                        top: 100px;
+                        right: 20px;
+                        background-color: var(--success);
+                        color: white;
+                        padding: 15px 20px;
+                        border-radius: var(--radius);
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        min-width: 300px;
+                        max-width: 400px;
+                        box-shadow: var(--shadow-lg);
+                        z-index: 9999;
+                        animation: slideIn 0.3s ease;
+                    }
+                    
+                    .notification.warning {
+                        background-color: var(--accent);
+                    }
+                    
+                    .notification.info {
+                        background-color: var(--primary);
+                    }
+                    
+                    .notification-close {
+                        background: none;
+                        border: none;
+                        color: white;
+                        cursor: pointer;
+                        margin-left: 15px;
+                    }
+                    
+                    @keyframes slideIn {
+                        from { transform: translateX(100%); opacity: 0; }
+                        to { transform: translateX(0); opacity: 1; }
+                    }
+                    
+                    @keyframes slideOut {
+                        from { transform: translateX(0); opacity: 1; }
+                        to { transform: translateX(100%); opacity: 0; }
+                    }
+                    
+                    @media (max-width: 576px) {
+                        .notification {
+                            left: 20px;
+                            right: 20px;
+                            min-width: auto;
+                        }
+                    }
+                `;
+                document.head.appendChild(styleElement);
+            }
+            
+            // Add close functionality
+            notification.querySelector('.notification-close').addEventListener('click', function() {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            });
+            
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.style.animation = 'slideOut 0.3s ease';
+                    setTimeout(() => notification.remove(), 300);
+                }
+            }, 5000);
+            
+            // Add to document
+            document.body.appendChild(notification);
+        }
+    </script>
+</body>
+</html>
