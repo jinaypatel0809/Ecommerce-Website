@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ElectroShop - Premium Electronics Store</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <style>
+        /* CSS Reset & Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -69,7 +67,7 @@
 
         .btn {
             display: inline-block;
-            padding: 12px 8px;
+            padding: 12px 28px;
             border-radius: var(--radius);
             text-decoration: none;
             font-weight: 600;
@@ -253,7 +251,7 @@
         /* Hero Banner */
         .hero {
             padding: 60px 0;
-            background-color: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
             overflow: hidden;
         }
 
@@ -306,15 +304,8 @@
         }
 
         @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         /* Categories Section */
@@ -430,7 +421,7 @@
             margin-bottom: 5px;
         }
 
-        .project-title {
+        .product-title {
             font-size: 18px;
             font-weight: 600;
             margin-bottom: 10px;
@@ -677,12 +668,12 @@
                 font-size: 28px;
             }
 
-            .newsletter hh2 {
+            .newsletter h2 {
                 font-size: 28px;
             }
         }
 
-        @media(max-width: 576px) {
+        @media (max-width: 576px) {
             .hero-btns {
                 flex-direction: column;
                 align-items: center;
@@ -702,7 +693,7 @@
                 border-radius: var(--radius);
             }
 
-            .newsletter-form input,
+            .newsletter-form input, 
             .newsletter-form button {
                 width: 100%;
                 border-radius: var(--radius);
@@ -711,7 +702,6 @@
         }
     </style>
 </head>
-
 <body>
     <!-- Header & Navbar -->
     <header>
@@ -736,7 +726,7 @@
                     </a>
                     <a href="cart.html" class="cart-icon" title="Cart">
                         <i class="fas fa-shopping-cart"></i>
-                        <span class="cart-button" id="cartCount">0</span>
+                        <span class="cart-count" id="cartCount">0</span>
                     </a>
                     <div class="mobile-toggle" id="mobileToggle">
                         <i class="fas fa-bars"></i>
@@ -751,7 +741,7 @@
         <div class="container">
             <div class="search-bar">
                 <input type="text" id="searchInput" placeholder="Search for products, brands and categories...">
-                <button id="searchBtn"><i class="fas fa-search"></i>Search</button>
+                <button id="searchBtn"><i class="fas fa-search"></i> Search</button>
             </div>
         </div>
     </div>
@@ -762,16 +752,14 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h1>Premium <span>Electronics</span> for Modern Life</h1>
-                    <p>Discover the latest tech gadgets, laptops, smartphones, and accessories at unbetable prices. Free
-                        shipping on orders over $99.</p>
+                    <p>Discover the latest tech gadgets, laptops, smartphones, and accessories at unbeatable prices. Free shipping on orders over $99.</p>
                     <div class="hero-btns">
                         <a href="products.html" class="btn btn-primary">Shop Now</a>
                         <a href="#" class="btn btn-secondary">View Deals</a>
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-                        alt="Latest Electronics">
+                    <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Latest Electronics">
                 </div>
             </div>
         </div>
@@ -818,7 +806,466 @@
         </div>
     </section>
 
-    
-</body>
+    <!-- Featured Products -->
+    <section class="featured-products section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Products</h2>
+                <p>Discover our top-rated electronics and gadgets, carefully selected for quality and performance.</p>
+            </div>
 
+            <div class="products-grid" id="featuredProducts">
+                <!-- Products will be dynamically added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="container">
+        <div class="newsletter">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Get the latest updates on new products, exclusive offers, and tech news delivered to your inbox.</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>ElectroShop</h3>
+                    <p>Your trusted source for premium electronics and gadgets. We bring you the latest technology with exceptional customer service.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">Deals & Offers</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Refunds</a></li>
+                        <li><a href="#">Warranty</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Tech Street, San Francisco, CA</li>
+                        <li><i class="fas fa-phone"></i> +1 (234) 567-8900</li>
+                        <li><i class="fas fa-envelope"></i> support@electroshop.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Sat: 9AM - 8PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 ElectroShop. All rights reserved. | Designed with <i class="fas fa-heart" style="color: var(--secondary);"></i> for tech enthusiasts</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ============================================
+        // Main JavaScript for Index Page
+        // ============================================
+
+        // DOM Elements
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.querySelector('.nav-links');
+        const cartCount = document.getElementById('cartCount');
+        const searchInput = document.getElementById('searchInput');
+        const searchBtn = document.getElementById('searchBtn');
+        const featuredProductsContainer = document.getElementById('featuredProducts');
+        const newsletterForm = document.getElementById('newsletterForm');
+
+        // Cart Data
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Featured Products Data
+        const featuredProducts = [
+            {
+                id: 1,
+                name: "UltraBook Pro Laptop",
+                category: "Laptops",
+                price: 1299.99,
+                originalPrice: 1499.99,
+                rating: 4.8,
+                reviewCount: 124,
+                badge: "BESTSELLER",
+                badgeClass: "",
+                imageUrl: "https://i.blogs.es/a9129c/4/1366_2000.jpeg"
+            },
+            {
+                id: 2,
+                name: "Quantum 5G Smartphone",
+                category: "Smartphones",
+                price: 899.99,
+                originalPrice: 999.99,
+                rating: 4.6,
+                reviewCount: 89,
+                badge: "NEW",
+                badgeClass: "new",
+                imageUrl: "https://ares.shiftdelete.net/2024/08/samsung-galaxy-quantum-5-ozellikleri-fiyati-kapak.jpg"
+            },
+            {
+                id: 3,
+                name: "Zenith Wireless Earbuds",
+                category: "Audio",
+                price: 199.99,
+                originalPrice: 249.99,
+                rating: 4.7,
+                reviewCount: 203,
+                badge: "20% OFF",
+                badgeClass: "sale",
+                imageUrl: "https://www.boat-lifestyle.com/cdn/shop/files/Artboard2_27443b8f-dbc1-4bbc-aded-aea10d20bcb1_1300x.png?v=1716362606"
+            },
+            {
+                id: 4,
+                name: "Nova 4K Smart TV",
+                category: "TV & Home",
+                price: 799.99,
+                originalPrice: 999.99,
+                rating: 4.9,
+                reviewCount: 67,
+                badge: "SALE",
+                badgeClass: "sale",
+                imageUrl: "https://images.samsung.com/is/image/samsung/p6pim/br/un65cu7700gxzd/gallery/br-uhd-4k-tv-un65cu7700gxzd-un--cu----gxzd-538559975?$650_519_PNG$"
+            },
+            {
+                id: 5,
+                name: "Apex Gaming Laptop",
+                category: "Gaming",
+                price: 1899.99,
+                originalPrice: 2199.99,
+                rating: 4.9,
+                reviewCount: 45,
+                badge: "HOT",
+                badgeClass: "",
+                imageUrl: "https://ucarecdn.com/3958e965-5991-4fbe-a224-7bec7127018c/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+            },
+            {
+                id: 6,
+                name: "Pixel Pro Camera",
+                category: "Cameras",
+                price: 1299.99,
+                originalPrice: 1499.99,
+                rating: 4.7,
+                reviewCount: 112,
+                badge: "FREE DELIVERY",
+                badgeClass: "new",
+                imageUrl: "https://i.ytimg.com/vi/gTGtL_hIsAM/maxresdefault.jpg"
+            }
+        ];
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+            renderFeaturedProducts();
+            setupEventListeners();
+        });
+
+        // Setup Event Listeners
+        function setupEventListeners() {
+            // Mobile menu toggle
+            mobileToggle.addEventListener('click', toggleMobileMenu);
+
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+
+            // Search functionality
+            searchBtn.addEventListener('click', handleSearch);
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    handleSearch();
+                }
+            });
+
+            // Newsletter subscription
+            newsletterForm.addEventListener('submit', handleNewsletterSubmit);
+        }
+
+        // Mobile Menu Functions
+        function toggleMobileMenu() {
+            navLinks.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        }
+
+        function closeMobileMenu() {
+            navLinks.classList.remove('active');
+            mobileToggle.querySelector('i').classList.add('fa-bars');
+            mobileToggle.querySelector('i').classList.remove('fa-times');
+        }
+
+        // Cart Functions
+        function updateCartCount() {
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
+
+        function addToCart(productId) {
+            const product = featuredProducts.find(p => p.id === productId);
+            
+            // Check if product already exists in cart
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    quantity: 1,
+                    imageUrl: product.imageUrl
+                });
+            }
+            
+            // Update localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            // Update cart count
+            updateCartCount();
+            
+            return product;
+        }
+
+        // Product Rendering Functions
+        function generateStarRating(rating) {
+            let stars = '';
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 >= 0.5;
+            
+            for (let i = 1; i <= 5; i++) {
+                if (i <= fullStars) {
+                    stars += '<i class="fas fa-star"></i>';
+                } else if (i === fullStars + 1 && hasHalfStar) {
+                    stars += '<i class="fas fa-star-half-alt"></i>';
+                } else {
+                    stars += '<i class="far fa-star"></i>';
+                }
+            }
+            
+            return stars;
+        }
+
+        function renderFeaturedProducts() {
+            featuredProductsContainer.innerHTML = '';
+            
+            featuredProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                
+                productCard.innerHTML = `
+                    <div class="product-badge ${product.badgeClass}">${product.badge}</div>
+                    <div class="product-image">
+                        <img src="${product.imageUrl}" alt="${product.name}">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">${product.category}</div>
+                        <h3 class="product-title">${product.name}</h3>
+                        <div class="product-price">
+                            <span class="current-price">$${product.price.toFixed(2)}</span>
+                            <span class="original-price">$${product.originalPrice.toFixed(2)}</span>
+                        </div>
+                        <div class="product-rating">
+                            ${generateStarRating(product.rating)}
+                            <span>(${product.reviewCount})</span>
+                        </div>
+                        <button class="add-to-cart" data-id="${product.id}">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+                `;
+                
+                featuredProductsContainer.appendChild(productCard);
+            });
+            
+            // Add event listeners to Add to Cart buttons
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    const product = addToCart(productId);
+                    
+                    // Show feedback
+                    const originalContent = this.innerHTML;
+                    this.innerHTML = '<i class="fas fa-check"></i> Added!';
+                    this.style.backgroundColor = 'var(--success)';
+                    
+                    setTimeout(() => {
+                        this.innerHTML = originalContent;
+                        this.style.backgroundColor = '';
+                    }, 2000);
+                    
+                    // Show notification
+                    showNotification(`${product.name} added to cart!`);
+                });
+            });
+        }
+
+        // Search Functionality
+        function handleSearch() {
+            const searchTerm = searchInput.value.trim();
+            
+            if (!searchTerm) {
+                showNotification('Please enter a search term', 'warning');
+                return;
+            }
+            
+            // In a real application, this would redirect to products page with search query
+            // For now, we'll just show a message
+            showNotification(`Searching for: "${searchTerm}"`, 'info');
+            
+            // Clear the search input
+            searchInput.value = '';
+            
+            // Optional: You could redirect to products.html with search parameters
+            // window.location.href = `products.html?search=${encodeURIComponent(searchTerm)}`;
+        }
+
+        // Newsletter Subscription
+        function handleNewsletterSubmit(e) {
+            e.preventDefault();
+            const email = e.target.querySelector('input[type="email"]').value;
+            
+            // Simple email validation
+            if (!validateEmail(email)) {
+                showNotification('Please enter a valid email address', 'warning');
+                return;
+            }
+            
+            // In a real app, you would send this to your server
+            // For now, we'll just show a success message
+            showNotification('Thank you for subscribing to our newsletter!', 'success');
+            
+            // Reset the form
+            e.target.reset();
+            
+            // Store email in localStorage (for demo purposes)
+            const subscribers = JSON.parse(localStorage.getItem('newsletterSubscribers')) || [];
+            subscribers.push({email, date: new Date().toISOString()});
+            localStorage.setItem('newsletterSubscribers', JSON.stringify(subscribers));
+        }
+
+        // Utility Functions
+        function validateEmail(email) {
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        function showNotification(message, type = 'success') {
+            // Remove existing notifications
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <span>${message}</span>
+                <button class="notification-close"><i class="fas fa-times"></i></button>
+            `;
+            
+            // Add styles for notification
+            const notificationStyles = `
+                <style>
+                    .notification {
+                        position: fixed;
+                        top: 100px;
+                        right: 20px;
+                        background-color: var(--success);
+                        color: white;
+                        padding: 15px 20px;
+                        border-radius: var(--radius);
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        min-width: 300px;
+                        max-width: 400px;
+                        box-shadow: var(--shadow-lg);
+                        z-index: 9999;
+                        animation: slideIn 0.3s ease;
+                    }
+                    
+                    .notification.warning {
+                        background-color: var(--accent);
+                    }
+                    
+                    .notification.info {
+                        background-color: var(--primary);
+                    }
+                    
+                    .notification-close {
+                        background: none;
+                        border: none;
+                        color: white;
+                        cursor: pointer;
+                        margin-left: 15px;
+                    }
+                    
+                    @keyframes slideIn {
+                        from { transform: translateX(100%); opacity: 0; }
+                        to { transform: translateX(0); opacity: 1; }
+                    }
+                    
+                    @media (max-width: 576px) {
+                        .notification {
+                            left: 20px;
+                            right: 20px;
+                            min-width: auto;
+                        }
+                    }
+                </style>
+            `;
+            
+            // Add styles to document if not already added
+            if (!document.querySelector('#notification-styles')) {
+                const styleElement = document.createElement('style');
+                styleElement.id = 'notification-styles';
+                styleElement.textContent = notificationStyles;
+                document.head.appendChild(styleElement);
+            }
+            
+            // Add close functionality
+            notification.querySelector('.notification-close').addEventListener('click', function() {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            });
+            
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.style.animation = 'slideOut 0.3s ease';
+                    setTimeout(() => notification.remove(), 300);
+                }
+            }, 5000);
+            
+            // Add to document
+            document.body.appendChild(notification);
+        }
+    </script>
+</body>
 </html>
