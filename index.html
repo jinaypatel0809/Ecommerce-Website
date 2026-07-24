@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dukaan — Shop Online</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/Style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <button class="logo" data-view="shop" id="logoBtn">दु<span>Dukaan</span></button>
+
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" class="search-icon"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <input type="search" id="searchInput" placeholder="Search for products, brands and more">
+    </div>
+
+    <nav class="main-nav">
+      <button class="nav-link active" data-view="shop">Shop</button>
+      <button class="nav-link" data-view="wishlist">Wishlist<span class="badge" id="wishlistBadge">0</span></button>
+      <button class="nav-link" data-view="orders">Orders</button>
+    </nav>
+
+    <div class="header-icons">
+      <button class="icon-btn" id="cartBtn" aria-label="Open cart">
+        <svg viewBox="0 0 24 24"><path d="M3 3h2l2.4 12.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L22 8H6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9.5" cy="20.5" r="1.4" fill="currentColor"/><circle cx="17.5" cy="20.5" r="1.4" fill="currentColor"/></svg>
+        <span class="badge" id="cartBadge">0</span>
+      </button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark and light theme"></button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- SHOP -->
+  <section id="view-shop" class="view active">
+    <div class="promo-strip">Use code <strong>WELCOME50</strong> for ₹50 off your first order · <strong>SAVE10</strong> for 10% off everything</div>
+
+    <div class="shop-layout">
+      <aside class="filters-panel">
+        <div class="filter-block">
+          <h3>Category</h3>
+          <div id="categoryFilters" class="filter-options"></div>
+        </div>
+        <div class="filter-block">
+          <h3>Max price <span id="maxPriceLabel" class="price-label"></span></h3>
+          <input type="range" id="priceRange" min="500" max="6000" step="100">
+        </div>
+        <button class="btn btn-ghost" id="clearFiltersBtn">Clear filters</button>
+      </aside>
+
+      <div class="products-area">
+        <div class="products-toolbar">
+          <span id="resultsCount" class="results-count"></span>
+          <select id="sortSelect">
+            <option value="featured">Sort: Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="rating">Top Rated</option>
+          </select>
+        </div>
+        <div class="product-grid" id="productGrid"></div>
+        <p class="empty-state" id="noResults" style="display:none;">No products match your filters.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WISHLIST -->
+  <section id="view-wishlist" class="view">
+    <h2>Your Wishlist</h2>
+    <div class="product-grid" id="wishlistGrid"></div>
+  </section>
+
+  <!-- CHECKOUT -->
+  <section id="view-checkout" class="view">
+    <h2>Checkout</h2>
+    <div class="checkout-layout">
+      <form id="checkoutForm" class="checkout-form">
+        <h3>Shipping details</h3>
+        <div class="field"><label for="custName">Full name</label><input type="text" id="custName" required></div>
+        <div class="field"><label for="custAddress">Address</label><input type="text" id="custAddress" required></div>
+        <div class="field-row">
+          <div class="field"><label for="custCity">City</label><input type="text" id="custCity" required></div>
+          <div class="field"><label for="custPin">Pincode</label><input type="text" id="custPin" required pattern="[0-9]{6}" maxlength="6"></div>
+        </div>
+        <div class="field"><label for="custPhone">Phone number</label><input type="tel" id="custPhone" required></div>
+        <div class="field">
+          <label>Payment method</label>
+          <div class="payment-options">
+            <label class="radio-pill"><input type="radio" name="payment" value="COD" checked> Cash on Delivery</label>
+            <label class="radio-pill"><input type="radio" name="payment" value="UPI"> UPI</label>
+            <label class="radio-pill"><input type="radio" name="payment" value="Card"> Card</label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" id="placeOrderBtn" style="width:100%;">Place Order</button>
+      </form>
+
+      <div class="order-summary receipt">
+        <h3>Order summary</h3>
+        <div id="checkoutItems" class="receipt-items"></div>
+        <div class="receipt-edge"></div>
+        <div class="summary-totals" id="checkoutTotals"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDERS -->
+  <section id="view-orders" class="view">
+    <h2>Your Orders</h2>
+    <div id="ordersList"></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">Dukaan — a demo storefront. Prices in ₹ (INR). No real payments are processed.</footer>
+
+<!-- CART DRAWER -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="drawer-header">
+    <h3>Your Cart</h3>
+    <button class="icon-btn" id="closeCartBtn" aria-label="Close cart">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="coupon-row">
+    <input type="text" id="couponInput" placeholder="Coupon code">
+    <button class="btn btn-ghost" id="applyCouponBtn">Apply</button>
+  </div>
+  <div id="couponMsg" class="coupon-msg"></div>
+  <div class="receipt-edge"></div>
+  <div class="drawer-totals" id="drawerTotals"></div>
+  <button class="btn btn-primary" id="checkoutBtn" style="width:100%;">Proceed to Checkout</button>
+</aside>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<script src="./js/Script.js"></script>
+</body>
+</html>
